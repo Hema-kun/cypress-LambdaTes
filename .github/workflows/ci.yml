@@ -1,38 +1,53 @@
 name: End-to-end tests
-on: push
+
+on:
+  push:
+    branches:
+      - master  # or your default branch
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Use your preferred Node.js version
+      
+      - name: Install npm dependencies
+        run: npm install
+      
       - name: Cypress run
         uses: cypress-io/github-action@v6
-       # after the test run completes store videos and any screenshots
-      - uses: actions/upload-artifact@v4
-        # add the line below to store screenshots only on failures
+      
+      - name: Store Cypress screenshots
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
-      - uses: actions/upload-artifact@v4
+          if-no-files-found: ignore
+      
+      - name: Store Cypress videos
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: cypress-videos
           path: cypress/videos
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+          if-no-files-found: ignore
+      
       - name: Publish CTRF Test Summary Results
         run: npx github-actions-ctrf ctrf/ctrf-report.json
-
-       - name: Extract test summary
-        run: node update-summary.js  # Ensure your script is in the repo
-
+      
+      - name: Extract Test Summary
+        run: node update-summary.js
+      
       - name: Update README.md
         run: |
-          # Replace old summary with the new one
+          # Remove old summary and append new summary
           sed -i '/# Test Summary/,+10d' README.md || true
           cat SUMMARY.md >> README.md
           rm SUMMARY.md
@@ -40,8 +55,7 @@ jobs:
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: hema-kun
-          author_email: herupurnama47.hp@gmail.com
+          author_name: github-actions
+          author_email: github-actions@github.com
           message: 'Update test summary in README.md'
           add: 'README.md'
-  
