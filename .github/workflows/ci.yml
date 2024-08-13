@@ -26,4 +26,22 @@ jobs:
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
       - name: Publish CTRF Test Summary Results
         run: npx github-actions-ctrf ctrf/ctrf-report.json
+
+       - name: Extract test summary
+        run: node update-summary.js  # Ensure your script is in the repo
+
+      - name: Update README.md
+        run: |
+          # Replace old summary with the new one
+          sed -i '/# Test Summary/,+10d' README.md || true
+          cat SUMMARY.md >> README.md
+          rm SUMMARY.md
+      
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: hema-kun
+          author_email: herupurnama47.hp@gmail.com
+          message: 'Update test summary in README.md'
+          add: 'README.md'
   
