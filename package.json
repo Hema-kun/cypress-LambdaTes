@@ -1,0 +1,19 @@
+{
+  "name": "cypress_lambates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:run": "npx cypress run",
+    "cy:open": "npx cypress open",
+    "cy:edge": "npx cypress run --browser edge",
+    "cy:chrome": "npx cypress run --browser chrome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.13.1",
+    "cypress-ctrf-json-reporter": "^0.0.11"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "results": {
+    "tool": {
+      "name": "cypress"
+    },
+    "summary": {
+      "tests": 6,
+      "failed": 0,
+      "passed": 6,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1723510182001,
+      "stop": 1723510243200
+    },
+    "tests": [
+      {
+        "name": "LTCypressStudio",
+        "status": "passed",
+        "duration": 14398,
+        "rawStatus": "passed",
+        "type": "e2e",
+        "filePath": "cypress\\e2e\\lambda.cy.js",
+        "retries": 0,
+        "flaky": false,
+        "browser": "electron 118.0.5993.159"
+      },
+      {
+        "name": "https://www.lambdatest.com/selenium-playground/auto-healing",
+        "status": "passed",
+        "duration": 7308,
+        "rawStatus": "passed",
+        "type": "e2e",
+        "filePath": "cypress\\e2e\\lambda2.cy.js",
+        "retries": 0,
+        "flaky": false,
+        "browser": "electron 118.0.5993.159"
+      },
+      {
+        "name": "Lambdatest Login  Open the URL",
+        "status": "passed",
+        "duration": 3333,
+        "rawStatus": "passed",
+        "type": "e2e",
+        "filePath": "cypress\\e2e\\lambda3.cy.js",
+        "retries": 0,
+        "flaky": false,
+        "browser": "electron 118.0.5993.159"
+      },
+      {
+        "name": "Lambdatest Login  Login into the application",
+        "status": "passed",
+        "duration": 5295,
+        "rawStatus": "passed",
+        "type": "e2e",
+        "filePath": "cypress\\e2e\\lambda3.cy.js",
+        "retries": 0,
+        "flaky": false,
+        "browser": "electron 118.0.5993.159"
+      },
+      {
+        "name": "Lambdatest Login  Search the Product",
+        "status": "passed",
+        "duration": 1336,
+        "rawStatus": "passed",
+        "type": "e2e",
+        "filePath": "cypress\\e2e\\lambda3.cy.js",
+        "retries": 0,
+        "flaky": false,
+        "browser": "electron 118.0.5993.159"
+      },
+      {
+        "name": "Lambdatest Login  Verify Product after search ",
+        "status": "passed",
+        "duration": 104,
+        "rawStatus": "passed",
+        "type": "e2e",
+        "filePath": "cypress\\e2e\\lambda3.cy.js",
+        "retries": 0,
+        "flaky": false,
+        "browser": "electron 118.0.5993.159"
+      }
+    ]
+  }
+}
